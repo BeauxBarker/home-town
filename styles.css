@@ -4,39 +4,261 @@
     box-sizing: border-box;
 }
 
+:root {
+  --surface-color: #fff;
+  --curve: 40;
+}
+
 body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     width: 100%;
-    overflow: hidden;
+    height: 100%;
+    z-index: 100;
+    background-color: rgb(48, 47, 47);
+
   }
-  nav{
-    position: absolute;
+
+  header{
     width: 100%;
-    height: 64px;
-    top: 0;
-    background-color: transparent;
+    height: 100%;
   }
+
+.hero--wrapper{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+
+}
 
   h1{
+
     line-height: 1.1;
-    font-size: 5rem;
-    max-width: 13ch;
+    color: rgba(17, 17, 17, 0.582);
+    mix-blend-mode: screen;
+    font-size: calc(7rem + 5vw);
+
   }
 
-  .container{
-    --max-width: 50rem;
-    width: min(100% - 2rem, var(--max-width));
-    margin-inline: auto;
+  .h2{
+    line-height: 1.1;
+    font-size: calc(6rem + 3vw);
+    max-width: 13ch;
+    mix-blend-mode: difference;
   }
+
+  .title--container{
+    display: flex;
+    width: 80%;
+    height: 100%;
+    flex-direction: column;
+    position: absolute;
+    z-index: 40;
+    margin: 80px;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+  }
+
+  .title__home{
+    width: 100%;
+    margin-left: 20%;
+  }
+
+  .title__town{
+    width: 100%;
+    text-align: end;
+  }
+
 
   .canvas--container{
-    height: 50vh;
-    z-index: 1;
+    flex: 2;
+    height: 100vh;
+    z-index: 20;
     inset: 0;
-    clip-path: polygon(0 0, 100% 0, 100% 24%, 0 100%);
+    clip-path: circle(70% at 20% 0);
   }
   
   canvas {
     width: 100%;
     height: 100%;
+  }
+
+
+  /********** SECTION TWO **********/
+
+  #section--cards{
+    width: 100%;
+    height: 800px;
+    background-color: rgba(0, 255, 255, 0.39);
+    display: flex;
+    flex-direction: row;
+    scroll-behavior: smooth;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 4rem 5vw;
+    padding: 0;
+    list-style-type: none;
+  }
+  
+  .card {
+    position: relative;
+    display: block;
+    height: auto;
+    width: 300px;
+    border-radius: calc(var(--curve) * 1px);
+    overflow: hidden;
+    text-decoration: none;
+  }
+  
+  .card__image {      
+    width: 300px;
+    height: auto;
+    object-fit: cover;
+    display: block;
+  }
+  
+  
+  .card__overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;      
+    border-radius: calc(var(--curve) * 1px);    
+    background-color: var(--surface-color);      
+    transform: translateY(100%);
+    transition: .2s ease-in-out;
+  }
+  
+  .card:hover .card__overlay {
+    transform: translateY(0);
+  }
+  
+  .card__header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    padding: 2em;
+    border-radius: calc(var(--curve) * 1px) 0 0 0;    
+    background-color: var(--surface-color);
+    transform: translateY(-100%);
+    transition: .2s ease-in-out;
+  }
+  
+  .card__arc {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    bottom: 100%;
+    right: 0;      
+    z-index: 1;
+  }
+  
+  .card__arc path {
+    fill: var(--surface-color);
+  }       
+  
+  .card:hover .card__header {
+    transform: translateY(0);
+  }
+  
+  .card__thumb {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;      
+    border-radius: 50%;      
+  }
+  
+  .card__title {
+    font-size: 1em;
+    margin: 0 0 .3em;
+    color: #6A515E;
+  }
+  
+  .card__tagline {
+    display: block;
+    margin: 1em 0;
+    font-family: "MockFlowFont";  
+    font-size: .8em; 
+    color: #1f1f20;  
+  }
+  
+  .card__status {
+    font-size: .8em;
+    color: #1f1f20;
+  }
+  
+  .card__description {
+    padding: 0 1.7em 1.7em;
+    margin: 0;
+    color: #1f1f20;
+    font-family: sans-serif;   
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+  }    
+
+  /********* MEDIA ************/
+
+  @media only screen and (max-width: 1002px) {
+
+
+    h1{
+      font-size: calc(6rem + 4vw);
+    }
+
+    .h2{
+      font-size: calc(6rem + 2vw);
+    }
+  }
+
+  
+  @media only screen and (max-width: 900px) {
+
+    h1{
+      font-size: calc(5rem + 4vw);
+    }  
+
+    .h2{
+      font-size: calc(5rem + 2vw);
+    }
+  }
+
+  @media only screen and (max-width: 800px) {
+
+    h1{
+      font-size: calc(4rem + 4vw);
+    }
+  
+    .h2{
+      font-size: calc(4rem + 2vw);
+    }
+    .title__town{
+      text-align: center;
+    }
+  }
+
+  @media only screen and (max-width: 650px) {
+
+
+    h1{
+      font-size: calc(4rem + 2vw);
+    }
+  
+    .h2{
+      font-size: calc(4rem + 2vw);
+      text-align: start;
+    }
+    .title--container{
+      margin: 40px;
+    }
+    .title__home{
+      margin-left: 0;
+    }
   }

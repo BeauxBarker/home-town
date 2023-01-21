@@ -1,0 +1,91 @@
+.demo a {
+  position: absolute;
+  bottom: 20px;
+  right: 10%;
+  z-index: 20;
+  display: inline-block;
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  color: rgb(5, 5, 5);
+  font : normal 400 20px/1 'Josefin Sans', sans-serif;
+  letter-spacing: .1em;
+  text-decoration: none;
+  transition: opacity .3s;
+}
+.demo a:hover {
+  opacity: .5;
+}
+
+#button1 a {
+  padding-top: 60px;
+}
+#button1 a span {
+  position: absolute;
+  top: 0;
+  width: 80px;
+  height: 80px;
+  margin-left: -23px;
+  border: 1px solid rgb(192, 188, 188);
+  border-radius: 100%;
+  background-color: white;
+  box-shadow: 
+    rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, 
+    rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, 
+    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  box-sizing: border-box;
+}
+
+#button1 a span::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  content: '';
+  width: 16px;
+  height: 16px;
+  margin: -12px 0 0 -8px;
+  border-left: 1px solid rgb(7, 7, 7);
+  border-bottom: 1px solid rgb(7, 7, 7);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  box-sizing: border-box;
+}
+#button1 a span::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  content: '';
+  width: 80px;
+  height: 80px;
+  box-shadow: 0 0 0 0 rgba(7, 61, 211, 0.521);
+  border-radius: 100%;
+  opacity: 0;
+  -webkit-animation: sdb03 3s infinite;
+  animation: sdb03 3s infinite;
+  box-sizing: border-box;
+}
+
+@-webkit-keyframes sdb03 {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  60% {
+    box-shadow: 0 0 0 60px rgba(255,255,255,.1);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+
+@media only screen and (max-width: 650px) {
+
+  .demo a {
+    right: 50%;
+  }
+
+}

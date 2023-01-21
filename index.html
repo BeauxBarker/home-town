@@ -6,23 +6,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="button.css"
 </head>
 
 <body>
 
     <header>
-        <div class="canvas--container">
-            <nav>
-            <button>words</button>
-            </nav>
-            <canvas id="canv" width="32" height="32"></canvas>
-        </div>
-        
-        <div class="container">
-            <h1>Lorem ipsum dolor sit amet.</h1>
-        </div>
+        <hero class="hero--wrapper">
+            <div class="canvas--container">
+                <canvas id="canv" width="32" height="32"></canvas>
+            </div>
+            <div class="title--container">
+
+                <h1 class="title__city">PORTLAND</h1>
+                <div class="title__home h2">MY HOME</div>
+                <div class="title__town h2">TOWN</div>
+            </div>   
+            
+            <div id="button1" class="demo" >
+                <a href="#section--cards"><span></span></a>
+            </div>  
+        </hero>
     </header>
-    
+        <section id="section--cards">
+            <ul class="cards">
+                <li>
+                    <a href="" class="card">
+                        <img src="images/park.png" class="card__image" alt="" />
+                        <div class="card__overlay">
+                          <div class="card__header">
+                            <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path d="M 40 80 c 22 0 40 -22 40 -40 v 40 Z" /></svg>                     
+                            <img class="card__thumb" src="https://i.imgur.com/7D7I6dI.png" alt="" />
+                            <div class="card__header-text">
+                              <h3 class="card__title">Mill Park</h3>            
+                              <span class="card__status"></span>
+                            </div>
+                          </div>
+                          <p 
+                            class="card__description">
+                            At just 452 square inches, Mill Ends Park is the smallest park in the world 
+                            according to the Guinness Book of World Records.
+                        </p>
+                        </div>
+                    </a>      
+                </li>
+            </ul>   
+        </section>
+
 </body>
 <script src="index.js"></script>
 </html>
